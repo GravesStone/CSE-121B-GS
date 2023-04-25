@@ -3,7 +3,7 @@
 /* VARIABLES */
 
 // Step 1: declare and instantiate a variable to hold your name
-let name = 'Nefi';
+let name = 'Mark Augustine Estimada';
 
 // Step 2: place the value of the name variable into the HTML file (hint: document.querySelector())
 document.querySelector('#name').textContent = name;
@@ -17,24 +17,24 @@ currentYear.textContent = year;
 
 // Step 5: declare and instantiate a variable to hold the name of your picture
 let myImage = new Image;
-myImage.src = 'Images/me.png';
+myImage.src = 'images/me.png';
 
 // Step 6: copy your image into the "images" folder
 
 // Step 7: place the value of the picture variable into the HTML file (hint: document.querySelector().setAttribute())
-document.querySelector('img').setAttribute('src', 'Images/me.png');
+document.querySelector('img').setAttribute('src', 'images/me.png');
 
 /* ARRAYS */
 
 // Step 1: declare and instantiate an array variable to hold your favorite foods
-const foods = ['Enchiladas', ' Tacos', ' Arroz con frijoles', ' Quesadillas']
+const foods = ['Adobo', ' Burger', 'Mac and Cheese', 'Beef Stake']
 
 // Step 2: place the values of the favorite foods variable into the HTML file
 let food = document.getElementById('food');
 food.textContent = foods;
 
 // Step 3: declare and instantiate a variable to hold another favorite food
-let anotherFood = "Yogurt"
+let anotherFood = "Icream"
 
 // Step 4: add the variable holding another favorite food to the favorite food array
 foods.push(anotherFood);
