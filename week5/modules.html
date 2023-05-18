@@ -5,32 +5,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Courses and sections</title>
-    <script src="scripts/modules.js" defer></script>
+    <title>Students Directory</title>
+    
   </head>
   <body>
+    <h2>Student Directory</h2>
+    Filter By:
 
     <select id ="minGpa">
-
+        <option value="3.5">Greater than 3.5</option>
+        <option value="3">Greater than 3</option>
+        <option value="All">All</option>
     </select>
-    <h1 id="courseName"></h1>
-    <h2 id="courseCode"></h2>
-    <label for="sectionNumber">Section Number</label>
-    <input id="sectionNumber" />
-    <button id="enrollStudent">Enroll Student</button>
-    <button id="dropStudent">Drop Student</button>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Section#</th>
-          <th>Room#</th>
-          <th>#Enrolled</th>
-          <th>Days</th>
-          <th>Instructor</th>
-        </tr>
-      </thead>
-      <tbody id="sections"></tbody>
-    </table>
+    <button id="btnLoad">Load</button>
+    <div id="output"></div>
+    
+    <script src="scripts/modules.js"></script>
   </body>
 </html>

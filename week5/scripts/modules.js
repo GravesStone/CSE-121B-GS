@@ -1,66 +1,51 @@
 //modules.js
-const aCourse = {
-    code: "CSE121b",
-    name: "Student Directory",
-    sections: [
-      {
-        sectionNum: 1,
-        roomNum: "STC 353",
-        enrolled: 26,
-        days: "TTh",
-        instructor: "Broter T",
-      },
-      {
-        sectionNum: 2,
-        roomNum: "STC 347",
-        enrolled: 25,
-        days: "TTh",
-        instructor: "Sister Apple",
-      },
-    ],
-    changeEnrollment: function (sectionNum, add = true) {
-      // find the right section...Array.findIndex will work here
-      const sectionIndex = this.sections.findIndex(
-        (section) => section.sectionNum == sectionNum
-      );
-      if (sectionIndex >= 0) {
-        if (add) {
-          this.sections[sectionIndex].enrolled++;
-        } else {
-          this.sections[sectionIndex].enrolled--;
-        }
-        renderSections(this.sections);
-      }
+const data = [
+    {
+      firstName:'John',
+      lastName : 'Doe',
+      age: '21',
+      gpa:3.5
     },
+    {
+      firstName:'Mary',
+      lastName : 'Smith',
+      age: '22',
+      gpa:3.8
+    },
+    {
+      firstName:'Emily',
+      lastName : 'Jones',
+      age: '19',
+      gpa:3.2
+    },
+    {
+      firstName:'Micheal',
+      lastName : 'Johnson',
+      age: '25',
+      gpa:2.5
+    }
+  ];
+      
+  const displayedStudentDirectory = () => {
+    let element = document.getElementById("output");
+    let minGpa = document.getElementById("minGpa").value;
+    element.innerHTML= "";
+
+    let arrayForDisplay;
+
+    if (minGpa == "All"){
+      arrayForDisplay = data;
+    }
+    else{
+      let val = parseFloat(minGpa);
+      arrayForDisplay = data.filter((student) => {
+        return student.gpa >= val;
+      });
+    }
+    arrayForDisplay.forEach(student =>{
+      element.innerHTML += `<p><b>${student.lastName}, ${student.firstName} (${student.age})</b>: ${student.gpa}</p>`
+
+    })
   };
-  
-  function setCourseInfo(course) {
-    const courseName = document.querySelector("#courseName");
-    const coursecode = document.querySelector("#courseCode");
-    courseName.textContent = course.name;
-    coursecode.textContent = course.code;
-  }
-  
-  function renderSections(sections) {
-    const html = sections.map(
-      (section) => `<tr>
-      <td>${section.sectionNum}</td>
-      <td>${section.roomNum}</td>
-      <td>${section.enrolled}</td>
-      <td>${section.days}</td>
-      <td>${section.instructor}</td></tr>`
-    );
-    document.querySelector("#sections").innerHTML = html.join("");
-  }
-  
-  document.querySelector("#enrollStudent").addEventListener("click", function () {
-    const sectionNum = document.querySelector("#sectionNumber").value;
-    aCourse.changeEnrollment(sectionNum);
-  });
-  document.querySelector("#dropStudent").addEventListener("click", function () {
-    const sectionNum = document.querySelector("#sectionNumber").value;
-    aCourse.changeEnrollment(sectionNum, false);
-  });
-  
-  setCourseInfo(aCourse);
-  renderSections(aCourse.sections);
+
+  document.getElementById("btnLoad").addEventListener('click',displayedStudentDirectory);
